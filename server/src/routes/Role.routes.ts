@@ -5,6 +5,34 @@ import { validateRequest } from '../middlewares/validateRequest';
 
 export const roleRoutes = express.Router();
 
+//Schema para documentación
+
+/**
+ * @swagger
+ * components:
+ *  schemas:
+ *   Role:
+ *    type: object
+ *    description: Esquema para los roles del Usuario del sistema.
+ *    properties:
+ *     id:
+ *      type: number
+ *      description: ID del rol del Usuario.
+ *      example: 100
+ *     name:
+ *      type: string
+ *      description: Nombre del rol de Usuario.
+ *      example: Administrador
+ *     description:
+ *      type: string
+ *      description: Descripción del rol del usuario.
+ *      example: Usuario con acceso total al sistema.
+ *     active:
+ *      type: string
+ *      description: Estado del rol en el sistema.
+ *      example: 1
+ */
+
 //Rutas para los roles de usuario
 roleRoutes.get('/', getRoles);
 roleRoutes.get('/:id', [param('id').isNumeric().withMessage('ID no válido')], validateRequest, getRole);

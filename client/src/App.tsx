@@ -1,12 +1,21 @@
-import { ImagesContainer } from './components/ImagesContainer';
-import { NavBar } from './components/NavBar';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Home } from './pages/Home';
+import { Users } from './pages/admin/Users';
 
 function App() {
 	return (
-		<>
-			<NavBar />
-			<ImagesContainer />
-		</>
+		<BrowserRouter>
+			<Routes>
+				<Route
+					path='/'
+					element={<Home />}
+				/>
+				<Route
+					path='/admin/users'
+					element={<Users />}
+				/>
+			</Routes>
+		</BrowserRouter>
 	);
 }
 

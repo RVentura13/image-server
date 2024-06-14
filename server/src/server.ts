@@ -1,5 +1,7 @@
 import express from 'express';
 import cors from 'cors';
+import swaggerUi from 'swagger-ui-express';
+import { swaggerSpec, swaggerUiOptions } from './config/swagger';
 import db from './config/database';
 import { userRoutes } from './routes/User.routes';
 import { roleRoutes } from './routes/Role.routes';
@@ -31,6 +33,9 @@ server.use('/api/users', userRoutes);
 server.use('/api/roles', roleRoutes);
 server.use('/api/permissions', permissionRoutes);
 server.use('/api/rolepermissions', rolePermissionsRoutes);
+
+//Documentación
+server.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec, swaggerUiOptions));
 
 server.use('/api', (req, res) => {
 	res.send('Servidor de imagenes de rventura.dev');

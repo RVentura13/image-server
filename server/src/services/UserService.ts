@@ -14,8 +14,8 @@ export const getUsersService = async (): Promise<User[] | null> => {
 };
 
 export const getUserService = async (id: string): Promise<User | null> => {
-	const users = await User.findByPk(id);
-	return users;
+	const user = await User.findByPk(id);
+	return user;
 };
 
 export const createUserService = async (userData: userDataProps): Promise<User> => {
