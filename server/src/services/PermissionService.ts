@@ -2,6 +2,7 @@ import { Permission } from '../models/Permission.model';
 
 type PermissionDataProps = {
 	name: string;
+	description: string;
 };
 
 export const getPermissionsService = async (): Promise<Permission[] | null> => {

@@ -30,6 +30,12 @@ export class Permission extends Model {
 	})
 	declare name: string;
 
+	@Column({
+		type: DataType.STRING,
+		allowNull: false,
+	})
+	declare description: string;
+
 	@Default(true)
 	@Column({ type: DataType.BOOLEAN })
 	declare active: boolean;

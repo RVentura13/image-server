@@ -1,5 +1,4 @@
 import { Request, Response } from 'express';
-import { Permission } from '../models/Permission.model';
 import {
 	createPermissionService,
 	getPermissionService,
@@ -36,9 +35,9 @@ export const getPermission = async (req: Request, res: Response): Promise<void> 
 
 export const createPermission = async (req: Request, res: Response): Promise<void> => {
 	try {
-		const { name } = req.body;
+		const { name, description } = req.body;
 
-		const permission = await createPermissionService({ name });
+		const permission = await createPermissionService({ name, description });
 
 		res.status(201).json({ message: 'Permiso creado correctamente', permission });
 	} catch (error) {
@@ -49,9 +48,9 @@ export const createPermission = async (req: Request, res: Response): Promise<voi
 export const updatePermission = async (req: Request, res: Response): Promise<void> => {
 	try {
 		const { id } = req.params;
-		const { name } = req.body;
+		const { name, description } = req.body;
 
-		const permission = await updatePermissionService(id, { name });
+		const permission = await updatePermissionService(id, { name, description });
 
 		if (permission) {
 			res.status(201).json({ message: 'Permiso actualizado correctamente', permission });

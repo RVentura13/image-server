@@ -93,7 +93,7 @@ userRoutes.get('/', getUsers);
  *     content:
  *      application/json:
  *       schema:
- *         $ref: '#/components/schemas/User'
+ *        $ref: '#/components/schemas/User'
  *    404:
  *     description: Usuario no encontrado.
  *
@@ -253,8 +253,8 @@ userRoutes.put(
  *       properties:
  *        active:
  *         type: boolean
- *         description: Estado del cliente a actualizar.
- *         example: 1
+ *         description: Estado del usuario a actualizar.
+ *         example: true
  *   responses:
  *    201:
  *     description: Actualizado correctamente.
